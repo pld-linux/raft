@@ -27,7 +27,6 @@ Summary:	Header files for %{name} development
 Summary(pl.UTF-8):	Pliki nagłówkowe %{name}
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	sqlite3-devel(wal_replication)
 
 %description devel
 This package contains development files for the %{name} library.
