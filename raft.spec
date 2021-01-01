@@ -1,11 +1,11 @@
 Summary:	Raft consensus protocol library
 Name:		raft
-Version:	0.9.17
+Version:	0.9.25
 Release:	1
 License:	LGPLv3
 Group:		Libraries
-Source0:	https://github.com/canonical/raft/archive/v%{version}.tar.gz
-# Source0-md5:	7e3cfa6682d12646f8f3df3350a64b73
+Source0:	https://github.com/canonical/raft/archive/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	2da527e4d935d94b84a7e6c0487c7f00
 URL:		https://github.com/canonical/raft
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
