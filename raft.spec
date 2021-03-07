@@ -64,7 +64,7 @@ Ten pakiet zawiera statyczną bibliotekę Raft.
 Summary:	API documentation for Raft library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki Raft
 Group:		Documentation
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description apidocs
 API documentation for Raft library.
