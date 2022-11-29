@@ -12,11 +12,12 @@ URL:		https://github.com/canonical/raft
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	libtool >= 2:2
-BuildRequires:	libuv-devel >= 1.8.0
-BuildRequires:	lz4-devel
+BuildRequires:	libuv-devel >= 1.18.0
+BuildRequires:	lz4-devel >= 1:1.7.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.752
-Requires:	libuv >= 1.8.0
+Requires:	libuv >= 1.18.0
+Requires:	lz4-libs >= 1:1.7.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -42,6 +43,7 @@ Summary:	Header files for Raft library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Raft
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	libuv-devel >= 1.18.0
 
 %description devel
 This package contains development files for the Raft library.
