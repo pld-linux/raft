@@ -1,13 +1,13 @@
 Summary:	Raft consensus protocol library
 Summary(pl.UTF-8):	Biblioteka protokołu consensusu Raft
 Name:		raft
-Version:	0.16.0
+Version:	0.18.1
 Release:	1
 License:	LGPL v3 with exception
 Group:		Libraries
 #Source0Download: https://github.com/canonical/raft/releases
 Source0:	https://github.com/canonical/raft/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	057709b57989c8880775d821ea9a1413
+# Source0-md5:	cc0ff338e5e0f253ff43e8939857da3f
 URL:		https://github.com/canonical/raft
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
@@ -107,7 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS LICENSE README.md
 %attr(755,root,root) %{_libdir}/libraft.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libraft.so.2
+%attr(755,root,root) %ghost %{_libdir}/libraft.so.3
 
 %files devel
 %defattr(644,root,root,755)
