@@ -1,14 +1,14 @@
 Summary:	Raft consensus protocol library
 Summary(pl.UTF-8):	Biblioteka protokołu consensusu Raft
 Name:		raft
-Version:	0.18.1
+Version:	0.22.1
 Release:	1
 License:	LGPL v3 with exception
 Group:		Libraries
-#Source0Download: https://github.com/canonical/raft/releases
-Source0:	https://github.com/canonical/raft/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	cc0ff338e5e0f253ff43e8939857da3f
-URL:		https://github.com/canonical/raft
+#Source0Download: https://github.com/cowsql/raft/releases
+Source0:	https://github.com/cowsql/raft/archive/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	4963b0c14d6230b38a1c8c148d60b42f
+URL:		https://github.com/cowsql/raft
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	libtool >= 2:2
@@ -106,12 +106,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS LICENSE README.md
-%attr(755,root,root) %{_libdir}/libraft.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libraft.so.3
+%{_libdir}/libraft.so.*.*.*
+%ghost %{_libdir}/libraft.so.0
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libraft.so
+%{_libdir}/libraft.so
 %{_includedir}/raft.h
 %{_includedir}/raft
 %{_pkgconfigdir}/raft.pc
@@ -119,7 +119,3 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libraft.a
-
-%files apidocs
-%defattr(644,root,root,755)
-%doc docs/build/{_static,*.html,*.js}
