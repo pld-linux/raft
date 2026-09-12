@@ -1,3 +1,8 @@
+#
+# Conditional build:
+%bcond_without	apidocs		# Sphinx based API documentation
+%bcond_without	tests		# unit tests
+#
 Summary:	Raft consensus protocol library
 Summary(pl.UTF-8):	Biblioteka protokołu consensusu Raft
 Name:		raft
@@ -16,6 +21,10 @@ BuildRequires:	libuv-devel >= 1.18.0
 BuildRequires:	lz4-devel >= 1:1.7.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.752
+%if %{with apidocs}
+BuildRequires:	python3-furo
+BuildRequires:	sphinx-pdg-3
+%endif
 Requires:	libuv >= 1.18.0
 Requires:	lz4-libs >= 1:1.7.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -84,9 +93,19 @@ Dokumentacja API biblioteki Raft.
 %{__autoconf}
 %{__automake}
 %configure \
-	--disable-silent-rules
+	--disable-silent-rules \
+	--enable-uv \
+	--with-lz4
 
 %{__make}
+
+%if %{with tests}
+%{__make} check
+%endif
+
+%if %{with apidocs}
+sphinx-build-3 -b html docs docs/build
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -119,3 +138,9 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libraft.a
+
+%if %{with apidocs}
+%files apidocs
+%defattr(644,root,root,755)
+%doc docs/build/{_static,*.html,*.js}
+%endif
